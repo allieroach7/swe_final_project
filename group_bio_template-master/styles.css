@@ -159,3 +159,68 @@ button:hover {
     color: #666;
     font-size: 0.95rem;
 }
+
+/* Rules Section Styles */
+.rules-section {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 20px;
+    padding: 3rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(10px);
+    width: 100%;
+}
+
+.rules-intro {
+    text-align: center;
+    font-size: 1.1rem;
+    color: #666;
+    margin-bottom: 2rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.rules-categories {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.rule-category {
+    background: rgba(102, 126, 234, 0.05);
+    padding: 2rem;
+    border-radius: 15px;
+    border-left: 4px solid #667eea;
+}
+
+.rule-category h3 {
+    font-family: 'Montserrat', sans-serif;
+    color: #333;
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+}
+
+.rule-category ul {
+    list-style: none;
+    padding: 0;
+}
+
+.rule-category li {
+    padding: 0.5rem 0;
+    border-bottom: 1px solid rgba(102, 126, 234, 0.1);
+    position: relative;
+    padding-left: 1.5rem;
+}
+
+.rule-category li:before {
+    content: "•";
+    color: #667eea;
+    font-weight: bold;
+    position: absolute;
+    left: 0;
+}
+
+.rule-category li:last-child {
+    border-bottom: none;
+}
+

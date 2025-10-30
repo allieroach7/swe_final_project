@@ -18,6 +18,7 @@
     <nav>
         <button onclick="showSection('bios')">Team Bios</button>
         <button onclick="showSection('vision')">Team Vision</button>
+        <button onclick="showSection('rules')">Team Rules</button>
     </nav>
 </header>
 
@@ -32,9 +33,9 @@
     </div>
     <div class="card">
         <h2>Allie Roach</h2>
-        <p>Product Owner</p>
+        <p>Product Owner, Backend Developer & Database Architect</p>
         <button onclick="toggleBio('bio2')">Show Bio</button>
-        <p id="bio2" class="bio">Allie is a backend developer specializing in server-side logic and database management.</p>
+        <p id="bio2" class="bio">Allie is a backend developer specializing in server-side logic, database management, and API design. She's passionate about scalable systems and clean architecture</p>
     </div>
 </div> <!-- Closing div for bios container -->
 
@@ -71,6 +72,56 @@
         </div> <!-- Closing div for values -->
     </div> <!-- Closing div for mission-section -->
 </div> <!-- Closing div for vision container -->
+
+<!-- Team rules section -->
+<div id="rules" class="container" style="display: none;">
+    <div class="rules-section">
+        <h2 class="section-title">Our Team Rules</h2>
+        <p class="rules-intro">These guidelines help us work together effectively while maintaining our commitment to excellence and mutual respect.</p>
+        
+        <div class="rules-categories">
+            <div class="rule-category">
+                <h3>🚀 Technical Standards</h3>
+                <ul>
+                    <li>Test coverage must remain above 80% for all new features</li>
+                    <li>All code requires review by at least one other member before merging</li>
+                    <li>Documentation is updated alongside code changes</li>
+                    <li>Weekly tech exploration sessions to learn new tools</li>
+                </ul>
+            </div>
+            
+            <div class="rule-category">
+                <h3>🤝 Collaboration</h3>
+                <ul>
+                    <li>Respectful debate is encouraged - challenge ideas, not people</li>
+                    <li>Daily standups to sync on progress and blockers</li>
+                    <li>Knowledge transfer sessions required before extended time off</li>
+                    <li>Pair programming for complex features and knowledge sharing</li>
+                </ul>
+            </div>
+            
+            <div class="rule-category">
+                <h3>📝 Workflow & Accountability</h3>
+                <ul>
+                    <li>Clear "Definition of Done" for every task</li>
+                    <li>48-hour notice for potential deadline concerns</li>
+                    <li>Progress transparency through regular updates</li>
+                    <li>Equal voice in technical decisions - majority rules with minority voice heard</li>
+                </ul>
+            </div>
+            
+            <div class="rule-category">
+                <h3>💚 Team Culture</h3>
+                <ul>
+                    <li>Assume positive intent in all interactions</li>
+                    <li>Celebrate both major milestones and small victories</li>
+                    <li>Mistakes are learning opportunities, not failures</li>
+                    <li>Respect work-life boundaries and mental health needs</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
 
 <script src="script.js"></script> <!-- Link to external JavaScript file -->
 
