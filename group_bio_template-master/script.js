@@ -13,21 +13,25 @@ function toggleBio(bioId) {
 }
 
 /**
- * Shows the specified section ('bios' or 'vision') and hides the other
+ * Shows the specified section ('bios', 'vision', or 'rules') and hides the others
  * @param {string} sectionId - The ID of the section to display
  */
 function showSection(sectionId) {
     const biosSection = document.getElementById("bios");
     const visionSection = document.getElementById("vision");
+    const rulesSection = document.getElementById("rules");
 
-    // Display the bios section and hide the vision section
+    // Hide all sections first
+    biosSection.style.display = "none";
+    visionSection.style.display = "none";
+    rulesSection.style.display = "none";
+
+    // Display the selected section
     if (sectionId === "bios") {
         biosSection.style.display = "flex";
-        visionSection.style.display = "none";
-    }
-    // Display the vision section and hide the bios section
-    else if (sectionId === "vision") {
-        biosSection.style.display = "none";
+    } else if (sectionId === "vision") {
         visionSection.style.display = "block";
+    } else if (sectionId === "rules") {
+        rulesSection.style.display = "block";
     }
 }
