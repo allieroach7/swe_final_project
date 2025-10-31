@@ -31,12 +31,41 @@
         <button onclick="toggleBio('bio1')">Show Bio</button>
         <p id="bio1" class="bio">John is a skilled frontend developer with 5 years of experience in creating responsive web applications.</p>
     </div>
-    <div class="card">
-        <h2>Allie Roach</h2>
-        <p>Product Owner, Backend Developer & Database Architect</p>
-        <button onclick="toggleBio('bio2')">Show Bio</button>
-        <p id="bio2" class="bio">Allie is a backend developer specializing in server-side logic, database management, and API design. She's passionate about scalable systems and clean architecture</p>
+     <div class="card">
+            <div class="card-header">
+                <img src="img/allie-roach.jpg" alt="Allie Roach" class="member-photo">
+                <h2>Allie Roach</h2>
+                <p class="role">Product Owner, Backend Developer & Database Architect</p>
+            </div>
+            <button onclick="toggleBio('bio2')" class="bio-toggle">Show Bio</button>
+            <div id="bio2" class="bio">
+                <p>Allie is a backend developer specializing in server-side logic, database management, and API design. She's passionate about scalable systems and clean architecture.</p>
+                
+                <div class="moodboard">
+                    <h3>Inspiration Moodboard</h3>
+                    <div class="moodboard-items">
+                        <div class="mood-item">
+                            <img src="img/python-logo.png" alt="Python">
+                            <span>Python</span>
+                        </div>
+                        <div class="mood-item">
+                            <img src="img/database-logo.png" alt="Database">
+                            <span>Database Design</span>
+                        </div>
+                        <div class="mood-item">
+                            <img src="img/api-logo.png" alt="API">
+                            <span>REST APIs</span>
+                        </div>
+                    </div>
+                    <div class="moodboard-links">
+                        <a href="https://github.com/allieroach7" target="_blank">GitHub</a>
+                        <a href="https://docs.python.org" target="_blank">Favorite Resource</a>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
+</div>
 </div> <!-- Closing div for bios container -->
 
 <!-- Team vision/mission statement section (hidden by default) -->

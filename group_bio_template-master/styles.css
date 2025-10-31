@@ -223,4 +223,71 @@ button:hover {
 .rule-category li:last-child {
     border-bottom: none;
 }
+/* Moodboard Styles */
+.moodboard {
+    background: rgba(102, 126, 234, 0.1);
+    padding: 1.5rem;
+    border-radius: 15px;
+    margin-top: 1rem;
+}
+
+.moodboard h3 {
+    font-family: 'Montserrat', sans-serif;
+    color: #333;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.moodboard-items {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.mood-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.mood-item img {
+    width: 50px;
+    height: 50px;
+    object-fit: contain;
+    transition: transform 0.3s ease;
+}
+
+.mood-item:hover img {
+    transform: scale(1.1);
+}
+
+.mood-item span {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #333;
+}
+
+.moodboard-links {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.moodboard-links a {
+    background: #667eea;
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+}
+
+.moodboard-links a:hover {
+    background: #764ba2;
+    transform: translateY(-2px);
+}
 
