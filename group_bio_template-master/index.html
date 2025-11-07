@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Team Bio</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Link to external CSS file -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<header>
+    <h1>Meet Our Team</h1>
+    <!-- Example team logo -->
+    <img src="img/team-logo.png" alt="Team Logo" class="team-logo">
+
+    <!-- Navigation menu to switch between sections -->
+    <nav>
+        <button onclick="showSection('bios')">Team Bios</button>
+        <button onclick="showSection('vision')">Team Vision</button>
+        <button onclick="showSection('rules')">Team Rules</button>
+    </nav>
+</header>
+
+<!-- Team bios section (default section) -->
+<div id="bios" class="container">
+    <!-- Each card represents an individual team member -->
+    <div class="card">
+        <h2>John Doe</h2>
+        <p>Frontend Developer</p>
+        <button onclick="toggleBio('bio1')">Show Bio</button>
+        <p id="bio1" class="bio">John is a skilled frontend developer with 5 years of experience in creating responsive web applications.</p>
+    </div>
+     <div class="card">
+            <div class="card-header">
+                <img src="img/IMG_0104.jpg" alt="Allie Roach" class="member-photo">
+                <h2>Allie Roach</h2>
+                <p class="role">Product Owner, Backend Developer & Database Architect</p>
+            </div>
+            <button onclick="toggleBio('bio2')" class="bio-toggle">Show Bio</button>
+            <div id="bio2" class="bio">
+                <p>Allie is a backend developer specializing in server-side logic, database management, and API design. She's passionate about scalable systems and clean architecture.</p>
+                
+                <div class="moodboard">
+                    <h3>Inspiration Moodboard</h3>
+                    <div class="moodboard-items">
+                        <div class="mood-item">
+                            <img src="img/png-transparent-python-logo-thumbnail.png" alt="Python">
+                            <span>Python</span>
+                        </div>
+                        <div class="mood-item">
+                            <img src="img/5079143-200.png" alt="Database">
+                            <span>Database Design</span>
+                        </div>
+                        <div class="mood-item">
+                            <img src="img/ISO_C++_Logo.svg.png" alt="C++">
+                            <span>C++</span>
+                        </div>
+                    </div>
+                    <div class="moodboard-links">
+                        <a href="https://github.com/allieroach7" target="_blank">GitHub</a>
+                        <a href="https://docs.python.org" target="_blank">Favorite Resource</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div><!-- Closing div for bios container -->
+<!-- Aditi Lakshminarayanan -->
+<div class="card">
+  <div class="card-header">
+    <img src="img/aditi.jpg" alt="Aditi Lakshminarayanan" class="member-photo">
+    <h2>Aditi Lakshminarayanan</h2>
+    <p class="role">Backend Developer & UI Enthusiast</p>
+  </div>
+
+  <button onclick="toggleBio('bio-aditi')" class="bio-toggle">Show Bio</button>
+  <div id="bio-aditi" class="bio">
+    <p>I enjoy building clean APIs and turning rough ideas into simple, usable interfaces. Current interests: FastAPI, Prisma/Postgres, and accessibility-first UI.</p>
+
+    <div class="moodboard">
+      <h3>Inspiration Moodboard</h3>
+      <div class="moodboard-items">
+        <div class="mood-item">
+          <img src="img/png-transparent-python-logo-thumbnail.png" alt="Python">
+          <span>Python</span>
+        </div>
+        <div class="mood-item">
+          <img src="img/ISO_C++_Logo.svg.png" alt="C++">
+          <span>C++</span>
+        </div>
+        <div class="mood-item">
+          <img src="img/5079143-200.png" alt="Databases">
+          <span>Databases</span>
+        </div>
+      </div>
+      <div class="moodboard-links">
+        <a href="https://github.com/ad1t1L" target="_blank">GitHub</a>
+        <a href="https://developer.mozilla.org/en-US/docs/Learn" target="_blank">Favorite Resource</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- Team vision/mission statement section (hidden by default) -->
+<div id="vision" class="container" style="display: none;">
+    <div class="mission-section">
+        <h2 class="section-title">Our Mission</h2>
+        <div class="mission-statement">
+            <div class="mission-icon">🎯</div>
+            <h3>"Precision in practice, innovation in approach"</h3>
+            <p>We deliver reliable solutions while exploring new technologies and methodologies. Our team combines technical excellence with creative problem-solving to build software that stands the test of time while pushing the boundaries of what's possible.</p>
+        </div>
+
+        <div class="values">
+            <h3>Our Core Values</h3>
+            <div class="values-grid">
+                <div class="value-item">
+                    <h4>Technical Excellence</h4>
+                    <p>Writing clean, maintainable code with comprehensive testing</p>
+                </div>
+                <div class="value-item">
+                    <h4>Continuous Learning</h4>
+                    <p>Always exploring new technologies and methodologies</p>
+                </div>
+                <div class="value-item">
+                    <h4>Collaborative Innovation</h4>
+                    <p>Great ideas come from sharing knowledge and perspectives</p>
+                </div>
+                <div class="value-item">
+                    <h4>Quality Focus</h4>
+                    <p>Never compromising on the quality of our deliverables</p>
+                </div>
+            </div>
+        </div> <!-- Closing div for values -->
+    </div> <!-- Closing div for mission-section -->
+</div> <!-- Closing div for vision container -->
+
+<!-- Team rules section -->
+<div id="rules" class="container" style="display: none;">
+    <div class="rules-section">
+        <h2 class="section-title">Our Team Rules</h2>
+        <p class="rules-intro">These guidelines help us work together effectively while maintaining our commitment to excellence and mutual respect.</p>
+        
+        <div class="rules-categories">
+            <div class="rule-category">
+                <h3>🚀 Technical Standards</h3>
+                <ul>
+                    <li>Test coverage must remain above 80% for all new features</li>
+                    <li>All code requires review by at least one other member before merging</li>
+                    <li>Documentation is updated alongside code changes</li>
+                    <li>Weekly tech exploration sessions to learn new tools</li>
+                </ul>
+            </div>
+            
+            <div class="rule-category">
+                <h3>🤝 Collaboration</h3>
+                <ul>
+                    <li>Respectful debate is encouraged - challenge ideas, not people</li>
+                    <li>Daily standups to sync on progress and blockers</li>
+                    <li>Knowledge transfer sessions required before extended time off</li>
+                    <li>Pair programming for complex features and knowledge sharing</li>
+                </ul>
+            </div>
+            
+            <div class="rule-category">
+                <h3>📝 Workflow & Accountability</h3>
+                <ul>
+                    <li>Clear "Definition of Done" for every task</li>
+                    <li>48-hour notice for potential deadline concerns</li>
+                    <li>Progress transparency through regular updates</li>
+                    <li>Equal voice in technical decisions - majority rules with minority voice heard</li>
+                </ul>
+            </div>
+            
+            <div class="rule-category">
+                <h3>💚 Team Culture</h3>
+                <ul>
+                    <li>Assume positive intent in all interactions</li>
+                    <li>Celebrate both major milestones and small victories</li>
+                    <li>Mistakes are learning opportunities, not failures</li>
+                    <li>Respect work-life boundaries and mental health needs</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="script.js"></script> <!-- Link to external JavaScript file -->
+
+</body>
+</html>
