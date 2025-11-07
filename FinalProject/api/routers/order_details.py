@@ -1,35 +1,46 @@
-from fastapi import APIRouter, Depends, FastAPI, status, Response
+from fastapi import APIRouter, Depends, HTTPException
 from sqlalchemy.orm import Session
-from ..controllers import order_details as controller
-from ..schemas import order_details as schema
-from ..dependencies.database import engine, get_db
+from typing import List
 
-router = APIRouter(
-    tags=['Order Details'],
-    prefix="/orderdetails"
-)
+from ..dependencies.database import get_db
+from ..models.order_details import OrderDetail as OrderDetailModel
+from ..schemas.order_details import OrderDetail, OrderDetailCreate, OrderDetailUpdate
 
-
-@router.post("/", response_model=schema.OrderDetail)
-def create(request: schema.OrderDetailCreate, db: Session = Depends(get_db)):
-    return controller.create(db=db, request=request)
+router = APIRouter()
 
 
-@router.get("/", response_model=list[schema.OrderDetail])
-def read_all(db: Session = Depends(get_db)):
-    return controller.read_all(db)
+@router.post("/order-details/", response_model=OrderDetail)
+def create_order_detail(order_detail: OrderDetailCreate, db: Session = Depends(get_db)):
+    db_order_detail = OrderDetailModel(**order_detail.dict())
+    db.add(db_order_detail)
+    db.commit()
+    db.refresh(db_order_detail)
+    return db_order_detail
 
 
-@router.get("/{item_id}", response_model=schema.OrderDetail)
-def read_one(item_id: int, db: Session = Depends(get_db)):
-    return controller.read_one(db, item_id=item_id)
+@router.get("/order-details/", response_model=List[OrderDetail])
+def read_order_details(skip: int = 0, limit: int = 100, db: Session = Depends(get_db)):
+    order_details = db.query(OrderDetailModel).offset(skip).limit(limit).all()
+    return order_details
 
 
-@router.put("/{item_id}", response_model=schema.OrderDetail)
-def update(item_id: int, request: schema.OrderDetailUpdate, db: Session = Depends(get_db)):
-    return controller.update(db=db, request=request, item_id=item_id)
+@router.get("/order-details/{order_detail_id}", response_model=OrderDetail)
+def read_order_detail(order_detail_id: int, db: Session = Depends(get_db)):
+    order_detail = db.query(OrderDetailModel).filter(OrderDetailModel.id == order_detail_id).first()
+    if order_detail is None:
+        raise HTTPException(status_code=404, detail="Order detail not found")
+    return order_detail
 
 
-@router.delete("/{item_id}")
-def delete(item_id: int, db: Session = Depends(get_db)):
-    return controller.delete(db=db, item_id=item_id)
+@router.put("/order-details/{order_detail_id}", response_model=OrderDetail)
+def update_order_detail(order_detail_id: int, order_detail: OrderDetailUpdate, db: Session = Depends(get_db)):
+    db_order_detail = db.query(OrderDetailModel).filter(OrderDetailModel.id == order_detail_id).first()
+    if db_order_detail is None:
+        raise HTTPException(status_code=404, detail="Order detail not found")
+
+    for key, value in order_detail.dict(exclude_unset=True).items():
+        setattr(db_order_detail, key, value)
+
+    db.commit()
+    db.refresh(db_order_detail)
+    return db_order_detail
