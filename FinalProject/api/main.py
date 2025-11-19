@@ -3,10 +3,14 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from .dependencies.config import conf
 
+from .models import model_loader
+
+from .routers import index as indexRoute
+from .routers import reviews, resources
+
 app = FastAPI(title="Online Restaurant Ordering System", version="1.0.0")
 
 origins = ["*"]
-
 app.add_middleware(
     CORSMiddleware,
     allow_origins=origins,
@@ -15,12 +19,11 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# Import and create tables
-from .models import model_loader
-from .routers import index as indexRoute
-
 model_loader.index()
+
 indexRoute.load_routes(app)
+app.include_router(reviews.router)
+app.include_router(resources.router)
 
 @app.get("/")
 def read_root():
@@ -32,3 +35,5 @@ def health_check():
 
 if __name__ == "__main__":
     uvicorn.run(app, host=conf.app_host, port=conf.app_port)
+
+
