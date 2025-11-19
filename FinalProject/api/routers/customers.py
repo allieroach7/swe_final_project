@@ -1,14 +1,14 @@
 from fastapi import APIRouter, Depends, HTTPException
 from sqlalchemy.orm import Session
+from sqlalchemy import func
 from typing import List
 
-# Use relative imports
 from ..dependencies.database import get_db
 from ..models.customers import Customer as CustomerModel
+from ..models.orders import Order as OrderModel
 from ..schemas.customers import Customer, CustomerCreate, CustomerUpdate
 
 router = APIRouter()
-
 
 @router.post("/customers/", response_model=Customer)
 def create_customer(customer: CustomerCreate, db: Session = Depends(get_db)):
@@ -56,3 +56,21 @@ def delete_customer(customer_id: int, db: Session = Depends(get_db)):
     db.delete(customer)
     db.commit()
     return {"message": "Customer deleted successfully"}
+
+
+
+@router.get("/customers/sales-analytics")
+def get_sales_analytics(db: Session = Depends(get_db)):
+
+    results = (
+        db.query(
+            CustomerModel.id,
+            CustomerModel.name,
+            func.sum(OrderModel.total_amount).label("total_sales")
+        )
+        .join(OrderModel, CustomerModel.id == OrderModel.customer_id)
+        .group_by(CustomerModel.id)
+        .all()
+    )
+    return results
+

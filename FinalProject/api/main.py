@@ -6,7 +6,7 @@ from .dependencies.config import conf
 from .models import model_loader
 
 from .routers import index as indexRoute
-from .routers import reviews, resources
+from .routers import reviews, resources, users, customers  # added users and customers
 
 app = FastAPI(title="Online Restaurant Ordering System", version="1.0.0")
 
@@ -22,8 +22,11 @@ app.add_middleware(
 model_loader.index()
 
 indexRoute.load_routes(app)
+
 app.include_router(reviews.router)
 app.include_router(resources.router)
+app.include_router(users.router, prefix="/api", tags=["Users"])
+app.include_router(customers.router, prefix="/api", tags=["Customers"])
 
 @app.get("/")
 def read_root():
@@ -35,5 +38,6 @@ def health_check():
 
 if __name__ == "__main__":
     uvicorn.run(app, host=conf.app_host, port=conf.app_port)
+
 
 
