@@ -15,3 +15,22 @@
 8. As the restaurant owner, I want to create and manage promotions so that I can attract more customers.
 9. As the restaurant owner, I want to view sales analytics and customer feedback so that I can make data-driven decisions.
 10. As the restaurant owner, I want to have clear documentation so that new staff and developers can learn the system easily.
+
+---
+
+## Additional Customer Stories
+
+11. As a customer, I want to apply a promotion code during checkout so that I can receive discounts on my order.  
+12. As a customer, I want to securely pay online so that I can confirm my order instantly.  
+13. As a customer, I want to leave ratings and reviews for menu items so that other users can see my feedback.
+
+## Additional Staff Stories
+
+14. As a restaurant staff member, I want to manage promotions so that I can update discounts when needed.  
+15. As a restaurant staff member, I want to view and manage payments so that I can verify successful transactions.
+
+## Additional Admin Stories
+
+16. As an admin, I want to monitor all orders, reviews, and payments so that I can ensure system accuracy.  
+17. As an admin, I want to create and manage user accounts so that I can control access levels for staff and customers.
+
